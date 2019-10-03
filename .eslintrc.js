@@ -1,0 +1,67 @@
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+  },
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+    'prettier',
+    'prettier/react',
+    'prettier/babel',
+    'prettier/react',
+    'plugin:promise/recommended',
+    'plugin:lodash/recommended',
+    'plugin:react/recommended',
+  ],
+  plugins: ['react', 'prettier', 'react-hooks', 'promise', 'lodash'],
+  rules: {
+    'new-cap': [
+      2,
+      {
+        newIsCap: true,
+        capIsNew: false,
+      },
+    ],
+    'valid-jsdoc': 0,
+    'arrow-body-style': [2, 'as-needed'],
+    'no-useless-constructor': 2,
+    eqeqeq: ['error', 'smart'],
+    'prettier/prettier': 'error',
+    'jsx-a11y/label-has-for': 0,
+    'lodash/import-scope': [2, 'member'],
+    'import/order': [2, { 'newlines-between': 'always' }],
+    'import/prefer-default-export': 0,
+    'react-hooks/rules-of-hooks': 'error',
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx'],
+      },
+    ],
+    'react/prop-types': 0,
+    'react/no-string-refs': 2,
+    'react/forbid-prop-types': 0,
+    'react/jsx-props-no-spreading': 0,
+    'jsx-a11y/click-events-have-key-events': 1,
+  },
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    window: true,
+    document: true,
+    localStorage: true,
+    FormData: true,
+    FileReader: true,
+    Blob: true,
+    navigator: true,
+  },
+};
