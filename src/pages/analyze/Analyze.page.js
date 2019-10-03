@@ -100,7 +100,7 @@ const Analyze = () => {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable
-            title="Crawled Data"
+            title="Analyzed Data"
             data={fetchedData}
             columns={columns}
             options={{

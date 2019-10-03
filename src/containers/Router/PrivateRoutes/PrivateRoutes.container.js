@@ -10,7 +10,7 @@ const PrivateRoutes = () => (
     <Dashboard path="dashboard" />
     <Source path="source" />
     <Analyze path="analyze" />
-    <Redirect default noThrow to="/dashboard" />
+    <Redirect default noThrow from="/" to="/dashboard" />
   </Router>
 );
 
