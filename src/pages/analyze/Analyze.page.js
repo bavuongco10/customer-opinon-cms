@@ -59,7 +59,7 @@ const columns = [
   },
   {
     name: 'review_score',
-    label: 'Reviewer Score',
+    label: 'Review Score',
     options: {
       filter: true,
     },

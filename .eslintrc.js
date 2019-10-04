@@ -35,6 +35,14 @@ module.exports = {
     'arrow-body-style': [2, 'as-needed'],
     'no-useless-constructor': 2,
     eqeqeq: ['error', 'smart'],
+    'no-underscore-dangle': [
+      2,
+      {
+        allowAfterThis: true,
+        enforceInMethodNames: true,
+        allow: ['_id'],
+      },
+    ],
     'prettier/prettier': 'error',
     'jsx-a11y/label-has-for': 0,
     'lodash/import-scope': [2, 'member'],
