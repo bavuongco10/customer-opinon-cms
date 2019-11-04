@@ -9,7 +9,6 @@ import ReRadarChart from './ReRadarChart';
 import DenseTable from './DenseTable';
 import ProvincesTile from './ProvincesTile.container';
 import HotelsTile from './HotelsTile.container';
-import ReviewersTile from './ReviewersTile.container';
 import RecordsTile from './RecordsTile.container';
 
 const Dashboard = () => {
@@ -31,12 +30,7 @@ const Dashboard = () => {
             <HotelsTile />
           </Widget>
         </Grid>
-        <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Widget title="Total Reviewers" upperTitle disableWidgetMenu>
-            <ReviewersTile />
-          </Widget>
-        </Grid>
-        <Grid item lg={3} md={4} sm={6} xs={12}>
+        <Grid item lg={6} md={8} sm={12} xs={12}>
           <RecordsTile />
         </Grid>
         <Grid item xs={12}>

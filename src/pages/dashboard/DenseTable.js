@@ -77,22 +77,6 @@ const DenseTable = ({ setAllAspects }) => {
           </TableBody>
         </Table>
       </form>
-      {/* <div className={classes.actionButtonContainer}> */}
-      {/* <Button */}
-      {/*  variant="contained" */}
-      {/*  size="large" */}
-      {/*  className={classes.actionButton} */}
-      {/*  startIcon={<AddIcon />}> */}
-      {/*  Add Hotel */}
-      {/* </Button> */}
-      {/* <Button */}
-      {/*  color="primary" */}
-      {/*  size="large" */}
-      {/*  className={classes.actionButton} */}
-      {/*  startIcon={<CompareIcon />}> */}
-      {/*  Compare Hotel */}
-      {/* </Button> */}
-      {/* </div> */}
     </>
   );
 };

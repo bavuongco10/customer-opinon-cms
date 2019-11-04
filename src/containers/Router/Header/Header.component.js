@@ -50,7 +50,10 @@ const Header = ({ onDrawerToggle }) => {
             </Grid>
             <Grid item>
               <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+                <Avatar
+                  src="https://react.semantic-ui.com/images/avatar/large/jenny.jpg"
+                  alt="My Avatar"
+                />
               </IconButton>
             </Grid>
           </Grid>

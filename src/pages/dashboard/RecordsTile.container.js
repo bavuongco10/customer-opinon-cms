@@ -41,7 +41,7 @@ const RecordsTile = () => {
       titleClass={classes.widgetTitle}>
       <div className={classes.visitsNumberContainer}>
         <PeopleIcon className={classes.icon} />
-        <Typography variant="h4">120502</Typography>
+        <Typography variant="h4">105644</Typography>
       </div>
     </Widget>
   );

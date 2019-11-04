@@ -5,7 +5,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   Radar,
-  Legend,
   PolarRadiusAxis,
 } from 'recharts';
 import { makeStyles } from '@material-ui/styles';
@@ -108,7 +107,6 @@ const ReRadarChart = ({ data }) => {
             />
           );
         })}
-        {/* <Legend /> */}
       </RadarChart>
     </div>
   );

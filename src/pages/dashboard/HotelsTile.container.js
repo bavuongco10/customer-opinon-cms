@@ -26,7 +26,7 @@ const HotelsTile = () => {
   return (
     <div className={classes.visitsNumberContainer}>
       <HotelIcon className={classes.icon} />
-      <Typography variant="h4">13452</Typography>
+      <Typography variant="h4">1290</Typography>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const ProvincesTile = () => {
   return (
     <div className={classes.visitsNumberContainer}>
       <LocationCityIcon className={classes.icon} />
-      <Typography variant="h4">678</Typography>
+      <Typography variant="h4">58</Typography>
     </div>
   );
 };
