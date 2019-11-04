@@ -19,6 +19,8 @@ const Widget = ({
   bodyClass,
   disableWidgetMenu,
   header,
+  paperClass,
+  titleClass,
 }) => {
   const classes = useStyles();
 
@@ -28,11 +30,15 @@ const Widget = ({
 
   return (
     <div className={classes.widgetWrapper}>
-      <Paper className={classes.paper} classes={{ root: classes.widgetRoot }}>
+      <Paper
+        className={classNames(classes.paper, paperClass)}
+        classes={{ root: classes.widgetRoot }}>
         <div className={classes.widgetHeader}>
           {header || (
             <>
-              <Typography variant="h6">{title}</Typography>
+              <Typography variant="h6" className={titleClass}>
+                {title}
+              </Typography>
               {!disableWidgetMenu && (
                 <IconButton
                   color="primary"

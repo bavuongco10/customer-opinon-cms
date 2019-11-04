@@ -12,6 +12,11 @@ const defaultTheme = createMuiTheme({
       secondary: '#6E6E6E',
       hint: '#B9B9B9',
     },
+    danger: {
+      main: '#ED4740',
+      light: '#FEF6F6',
+      dark: '#BF0E08',
+    },
   },
   typography: {
     h5: {

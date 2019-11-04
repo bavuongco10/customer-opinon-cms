@@ -5,6 +5,8 @@ import { useAsync, useAsyncFn } from 'react-use';
 import queryString from 'query-string';
 import { find, get, isEmpty, reduce } from 'lodash';
 
+import getRandomColor from '../../utils/getRamdomColor.util';
+
 import FormDialogHotelSelector from './FormDialogHotelSelector';
 
 const DenseRow = ({ cities, setAllAspects, rowId }) => {

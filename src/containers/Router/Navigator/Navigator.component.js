@@ -9,9 +9,9 @@ import {
   ListItemText,
   Avatar,
 } from '@material-ui/core';
-import PeopleIcon from '@material-ui/icons/People';
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+import ArchiveIcon from '@material-ui/icons/Archive';
 import { map } from 'lodash';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from '@reach/router';
@@ -24,12 +24,12 @@ const categories = [
     children: [
       {
         id: 'Dashboard',
-        icon: <PeopleIcon />,
+        icon: <DashboardIcon />,
         active: true,
         link: '/dashboard',
       },
-      { id: 'Source', icon: <DnsRoundedIcon />, link: '/source' },
-      { id: 'Analyze', icon: <PermMediaOutlinedIcon />, link: '/analyze' },
+      { id: 'Source', icon: <TrackChangesIcon />, link: '/source' },
+      { id: 'Analyze', icon: <ArchiveIcon />, link: '/analyze' },
     ],
   },
 ];

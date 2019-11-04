@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import { isEmpty, map, forEach } from 'lodash';
 import {
@@ -9,73 +8,109 @@ import {
   Legend,
   PolarRadiusAxis,
 } from 'recharts';
+import { makeStyles } from '@material-ui/styles';
+import classNames from 'clsx';
 
-const DOMAINS = [
-  {
-    subject: 'nhân viên',
-    fullMark: 100,
-  },
-  {
-    subject: 'phòng',
-    fullMark: 100,
-  },
-  {
-    subject: 'vệ sinh',
-    fullMark: 100,
-  },
-  {
-    subject: 'giá',
-    fullMark: 100,
-  },
-  {
-    subject: 'phòng tắm',
-    fullMark: 100,
-  },
-  {
-    subject: 'hồ bơi',
-    fullMark: 100,
-  },
+import getRandomColor from '../../utils/getRamdomColor.util';
+
+const ASPECTS = [
+  'khách sạn',
+  'view',
+  'món ăn',
+  'thiết bị',
+  'ban công',
+  'phòng',
+  'lễ tân',
+  'nội thất',
+  'vệ sinh',
+  'cảnh',
+  'nhân viên',
+  'không gian',
+  'thang máy',
+  'wifi',
+  'đèn',
+  'giá',
+  'thái độ',
+  'xe máy',
+  'toilet',
+  'sảnh',
+  'biển',
+  'nhà hàng',
+  'máy lạnh',
+  'khuôn viên',
+  'diện tích',
+  'vị trí',
+  'mùi',
+  'khăn',
+  'bãi tắm',
+  'bồn tắm',
+  'dịch vụ',
+  'bể bơi',
+  'cửa sổ',
+  'hành lang',
+  'bar',
+  'giường',
+  'thức ăn',
+  'tủ lạnh',
+  'hướng',
+  'bếp',
 ];
 
-function getRandomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+const DOMAINS = map(ASPECTS, aspect => ({
+  subject: aspect,
+  fullMark: 100,
+}));
+
+const useStyles = makeStyles(() => ({
+  radarContainer: {
+    position: 'relative',
+  },
+  blur: {
+    filter: 'blur(4px)',
+  },
+}));
 
 const ReRadarChart = ({ data }) => {
+  const classes = useStyles();
+
   const processedData = isEmpty(data)
     ? DOMAINS
     : map(DOMAINS, domain => {
         forEach(data, (value, key) => {
+          // eslint-disable-next-line no-param-reassign
           domain[key] = value[domain.subject];
         });
         return domain;
       });
 
   return (
-    <RadarChart width={500} height={400} data={processedData}>
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis angle={30} domain={[0, 100]} />
-      {map(data, (value, key) => {
-        const myColor = getRandomColor();
-        return (
-          <Radar
-            key={key}
-            name={key}
-            dataKey={key}
-            stroke={myColor}
-            fill={myColor}
-            fillOpacity={0.2}
-          />
-        );
-      })}
-      {/* <Legend /> */}
-    </RadarChart>
+    <div className={classes.radarContainer}>
+      <RadarChart
+        width={700}
+        height={600}
+        data={processedData}
+        className={classNames({
+          [classes.blur]: isEmpty(data),
+        })}>
+        <PolarGrid />
+        <PolarAngleAxis dataKey="subject" />
+        <PolarRadiusAxis angle={30} domain={[0, 100]} />
+        {map(data, (value, key) => {
+          const myColor = value?.color || getRandomColor();
+          return (
+            <Radar
+              key={key}
+              name={key}
+              dataKey={key}
+              stroke={myColor}
+              fill={myColor}
+              fillOpacity={0.2}
+            />
+          );
+        })}
+        {/* <Legend /> */}
+      </RadarChart>
+    </div>
   );
 };
 export default ReRadarChart;

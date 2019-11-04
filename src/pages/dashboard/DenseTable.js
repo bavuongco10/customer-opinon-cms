@@ -66,7 +66,7 @@ const DenseTable = ({ setAllAspects }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {times(4, index => (
+            {times(2, index => (
               <DenseRow
                 rowId={index}
                 key={index}
