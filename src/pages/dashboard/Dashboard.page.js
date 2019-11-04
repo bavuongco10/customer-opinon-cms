@@ -41,7 +41,10 @@ const Dashboard = () => {
           </Widget>
         </Grid>
         <Grid item lg={8} md={8} sm={12} xs={12}>
-          <Widget title="Aspects Radar chart" upperTitle disableWidgetMenu>
+          <Widget
+            title="Hotels Aspects Radar Chart"
+            upperTitle
+            disableWidgetMenu>
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <ReRadarChart data={radarData} />
             </Grid>

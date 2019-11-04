@@ -8,10 +8,11 @@ import {
   YAxis,
   Cell,
 } from 'recharts';
-import { map } from 'lodash';
+import { isEmpty, map } from 'lodash';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
+import classNames from 'clsx';
 
 const ticks = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
 
@@ -40,14 +41,20 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'gray',
     marginBottom: 12,
   },
+  blur: {
+    filter: 'blur(4px)',
+  },
 }));
 
 const SentimentChart = ({ data }) => {
   const classes = useStyles();
   return (
-    <div className={classes.sentimentChartContainer}>
+    <div
+      className={classNames(classes.sentimentChartContainer, {
+        [classes.blur]: isEmpty(data),
+      })}>
       <Button color="primary" size="large" className={classes.actionButton}>
-        Sentiment Scores
+        Hotels Sentiment Score Chart
       </Button>
       <Divider className={classes.divider} />
       <BarChart width={300} height={350} data={data} margin={{ left: -30 }}>
