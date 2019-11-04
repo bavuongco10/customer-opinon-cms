@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { useAsync, useAsyncFn } from 'react-use';
 import queryString from 'query-string';
-import { find, get, isEmpty, reduce } from 'lodash';
+import { find, get, isEmpty, random, reduce, round } from 'lodash';
+import tinycolor from 'tinycolor2';
 
 import FormDialogHotelSelector from './FormDialogHotelSelector';
 
-const DenseRow = ({ cities, setAllAspects, rowId }) => {
+const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
   const [currentCity, setCurrentCity] = useState('');
 
   const [currentHotel, setCurrentHotel] = useState('');
@@ -29,7 +30,13 @@ const DenseRow = ({ cities, setAllAspects, rowId }) => {
     return response.json();
   }, [currentHotel]);
 
-  const handleSelectHotel = async () => {
+  const hotels = get(hotelState, 'value.items', []);
+  const currentHotelObj = find(hotels, ['_id', currentHotel]);
+  const currentHotelName = currentHotelObj?.name || 'Open select dialog';
+  const reviewScore = get(reviewScoreState, 'value.item.review_score', 'NA');
+  const myColor = tinycolor(color).setAlpha(0.3);
+
+  const handleSelectHotel = useCallback(async () => {
     const reviewScoreFetched = await fetchReviewScore();
     const ownReviewScoreState = get(reviewScoreFetched, 'item', {});
     if (!isEmpty(ownReviewScoreState)) {
@@ -44,19 +51,20 @@ const DenseRow = ({ cities, setAllAspects, rowId }) => {
           },
           {}
         );
+        newAspect[rowId].color = color;
+        newAspect[rowId].hotelName = currentHotelName;
+        newAspect[rowId].sentiment = round(random(0.1, 1), 2);
         return { allAspects: newAspect };
       });
     }
-  };
-
-  const hotels = get(hotelState, 'value.items', []);
-  const currentHotelObj = find(hotels, ['_id', currentHotel]);
-  const currentHotelName = currentHotelObj?.name || 'Open select dialog';
-  const reviewScoreObj = get(reviewScoreState, 'value.item', {});
+  }, [fetchReviewScore, setAllAspects, rowId, color, currentHotelName]);
 
   return (
     <TableRow>
-      <TableCell component="th" scope="row">
+      <TableCell
+        component="th"
+        scope="row"
+        style={{ backgroundColor: myColor }}>
         <FormDialogHotelSelector
           cities={cities}
           hotels={hotels}
@@ -68,7 +76,7 @@ const DenseRow = ({ cities, setAllAspects, rowId }) => {
           onOk={handleSelectHotel}
         />
       </TableCell>
-      <TableCell>{reviewScoreObj.review_score || 'NA'}</TableCell>
+      <TableCell>{reviewScore}</TableCell>
     </TableRow>
   );
 };

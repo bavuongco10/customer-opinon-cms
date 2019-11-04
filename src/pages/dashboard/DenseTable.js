@@ -35,6 +35,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const COLORS = ['#F47560', '#F1E15B'];
+
 const DenseTable = ({ setAllAspects }) => {
   const classes = useStyles();
 
@@ -72,6 +74,7 @@ const DenseTable = ({ setAllAspects }) => {
                 key={index}
                 cities={cities}
                 setAllAspects={setAllAspects}
+                color={COLORS[index]}
               />
             ))}
           </TableBody>

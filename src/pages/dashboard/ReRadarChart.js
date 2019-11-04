@@ -6,9 +6,11 @@ import {
   PolarAngleAxis,
   Radar,
   PolarRadiusAxis,
+  Tooltip,
 } from 'recharts';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'clsx';
+import filterFp from 'lodash/fp/filter';
 
 import getRandomColor from '../../utils/getRamdomColor.util';
 
@@ -71,7 +73,6 @@ const useStyles = makeStyles(() => ({
 
 const ReRadarChart = ({ data }) => {
   const classes = useStyles();
-
   const processedData = isEmpty(data)
     ? DOMAINS
     : map(DOMAINS, domain => {
@@ -80,7 +81,7 @@ const ReRadarChart = ({ data }) => {
           domain[key] = value[domain.subject];
         });
         return domain;
-      });
+      }) |> filterFp(object => object['0'] || object['1']);
 
   return (
     <div className={classes.radarContainer}>
@@ -93,9 +94,10 @@ const ReRadarChart = ({ data }) => {
         })}>
         <PolarGrid />
         <PolarAngleAxis dataKey="subject" />
+        <Tooltip />
         <PolarRadiusAxis angle={30} domain={[0, 100]} />
         {map(data, (value, key) => {
-          const myColor = value?.color || getRandomColor();
+          const myColor = data[key].color || getRandomColor();
           return (
             <Radar
               key={key}

@@ -10,6 +10,7 @@ import DenseTable from './DenseTable';
 import ProvincesTile from './ProvincesTile.container';
 import HotelsTile from './HotelsTile.container';
 import RecordsTile from './RecordsTile.container';
+import SentimentChart from './SentimentChart.container';
 
 const Dashboard = () => {
   const [allAspects, setAllAspects] = useState({
@@ -36,6 +37,7 @@ const Dashboard = () => {
         <Grid item lg={4} md={4} sm={12} xs={12}>
           <Widget title="Compare Hotels" upperTitle disableWidgetMenu>
             <DenseTable setAllAspects={setAllAspects} />
+            <SentimentChart data={radarData} />
           </Widget>
         </Grid>
         <Grid item lg={8} md={8} sm={12} xs={12}>
