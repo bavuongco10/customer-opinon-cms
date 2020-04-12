@@ -9,13 +9,13 @@
     "@babel/plugin-transform-react-display-name",
     "@babel/plugin-proposal-optional-chaining",
     "@babel/plugin-proposal-partial-application",
-    [
-      "babel-plugin-react-funland",
-      {
-        "properties": [
-          "data-test"
-        ]
-      }
-    ]
+//    [
+//      "babel-plugin-react-funland",
+//      {
+//        "properties": [
+//          "data-test"
+//        ]
+//      }
+//    ]
   ]
 }
