@@ -60,9 +60,14 @@ const SearchesBar = () => {
   const cities = useSelector(state => state?.main?.cities);
   const travelTypes = useSelector(state => state?.main?.travelTypes);
 
-  const onSubmit = values => {
-    console.log(values);
-  };
+  const onSubmit = values =>
+    dispatch(
+      actions.getRankingsAction({
+        cityId: values.city._id,
+        travelType: values.travel.name,
+        stayLength: Math.abs(differenceInDays(...values.dateRange)),
+      })
+    );
 
   const { form, handleSubmit, submitting } = useForm({
     onSubmit,
