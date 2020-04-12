@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/styles';
 import { useToggle } from 'react-use';
 import classNames from 'clsx';
 
-import Header from '../Header/Header.component';
-import Navigator from '../Navigator/Navigator.component';
+import Header from './Header/Header.component';
+import Navigator from './Navigator/Navigator.component';
 
 const drawerWidth = 256;
 

@@ -8,6 +8,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/styles';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = ({ onDrawerToggle }) => {
+const Header = ({}) => {
   const classes = useStyles();
 
   return (
@@ -32,13 +33,11 @@ const Header = ({ onDrawerToggle }) => {
         <Toolbar>
           <Grid container spacing={1} alignItems="center">
             <Grid item>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={onDrawerToggle}
-                className={classes.menuButton}>
-                <MenuIcon />
-              </IconButton>
+              <Typography
+                variant="h4"
+                style={{ color: '#005180', fontWeight: 'bold' }}>
+                ODSS
+              </Typography>
             </Grid>
             <Grid item xs />
             <Grid item>

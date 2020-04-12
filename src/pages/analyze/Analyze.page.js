@@ -5,6 +5,7 @@ import { useAsync } from 'react-use';
 import { get } from 'lodash';
 import queryString from 'query-string';
 
+import { API_HOST } from '../../constants/main.constants';
 import Title from '../../components/Title/Title.component';
 
 const columns = [
@@ -75,7 +76,7 @@ const columns = [
 ];
 
 const Analyze = () => {
-  const defaultUrl = 'https://odss-back-end.buithanhbavuong.now.sh/api/results';
+  const defaultUrl = `${API_HOST}/api/results`;
   const [offset, setOffset] = useState(10);
   const [page, setPage] = useState(0);
 

@@ -39,7 +39,7 @@ const RecordsTile = () => {
       disableWidgetMenu
       paperClass={classes.widget}
       titleClass={classes.widgetTitle}>
-      <div className={classes.visitsNumberContainer}>
+      <div className={classes.visitsNumberContainer} data-test={4}>
         <PeopleIcon className={classes.icon} />
         <Typography variant="h4">105644</Typography>
       </div>

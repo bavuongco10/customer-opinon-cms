@@ -11,6 +11,8 @@ import CompareIcon from '@material-ui/icons/Compare';
 import { times, get } from 'lodash';
 import { useAsync } from 'react-use';
 
+import { API_HOST } from '../../constants/main.constants';
+
 import DenseRow from './DenseRow';
 
 const useStyles = makeStyles(theme => ({
@@ -41,8 +43,7 @@ const DenseTable = ({ setAllAspects }) => {
   const classes = useStyles();
 
   const state = useAsync(async () => {
-    const defaultUrl =
-      'https://odss-back-end.buithanhbavuong.now.sh/api/cities';
+    const defaultUrl = `${API_HOST}/api/cities`;
     const response = await fetch(defaultUrl);
     return response.json();
   }, []);

@@ -6,6 +6,7 @@ import { get } from 'lodash';
 import queryString from 'query-string';
 
 import Title from '../../components/Title/Title.component';
+import { API_HOST } from '../../constants/main.constants';
 
 const columns = [
   {
@@ -138,7 +139,7 @@ const columns = [
 ];
 
 const Source = () => {
-  const defaultUrl = 'https://odss-back-end.buithanhbavuong.now.sh/api/sources';
+  const defaultUrl = `${API_HOST}/api/sources`;
   const [offset, setOffset] = useState(10);
   const [page, setPage] = useState(0);
 

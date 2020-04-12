@@ -6,6 +6,8 @@ import queryString from 'query-string';
 import { find, get, isEmpty, random, reduce, round } from 'lodash';
 import tinycolor from 'tinycolor2';
 
+import { API_HOST } from '../../constants/main.constants';
+
 import FormDialogHotelSelector from './FormDialogHotelSelector';
 
 const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
@@ -14,8 +16,7 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
   const [currentHotel, setCurrentHotel] = useState('');
   const hotelState = useAsync(async () => {
     if (!currentCity) return null;
-    const defaultUrl =
-      'https://odss-back-end.buithanhbavuong.now.sh/api/hotels';
+    const defaultUrl = `${API_HOST}/api/hotels`;
     const fullUrl = `${defaultUrl}?${queryString.stringify({
       city: currentCity,
     })}`;
@@ -25,7 +26,7 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
 
   const [reviewScoreState, fetchReviewScore] = useAsyncFn(async () => {
     if (!currentCity) return null;
-    const url = `https://odss-back-end.buithanhbavuong.now.sh/api/hotels/${currentHotel}/results`;
+    const url = `${API_HOST}/api/hotels/${currentHotel}/results`;
     const response = await fetch(url);
     return response.json();
   }, [currentHotel]);

@@ -16,7 +16,7 @@ import { map } from 'lodash';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from '@reach/router';
 
-import { logo192 } from '../../../assets/images';
+import { logo192 } from '../../../../assets/images';
 
 const categories = [
   {
