@@ -1,7 +1,5 @@
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 import middlewares from './middlewares';
 import createReducerManager from './utils/createReducerManager.util';
@@ -10,14 +8,7 @@ const staticReducers = {};
 
 const initialState = {};
 
-const persistConfig = {
-  key: 'root',
-  storage,
-};
-
 const reducerManager = createReducerManager(staticReducers);
-
-const persistedReducer = persistReducer(persistConfig, reducerManager.reduce);
 
 const configureStore = () => {
   const middlewareEnhancer = applyMiddleware(...middlewares);
@@ -25,7 +16,7 @@ const configureStore = () => {
   const enhancers = [middlewareEnhancer];
   const composedEnhancers = composeWithDevTools(...enhancers);
   const currentStore = createStore(
-    persistedReducer,
+    reducerManager.reduce,
     initialState,
     composedEnhancers
   );
@@ -36,4 +27,3 @@ const configureStore = () => {
 };
 
 export const store = configureStore();
-export const persistor = persistStore(store);

@@ -2,8 +2,6 @@ import { createAction } from 'redux-actions';
 import typeToReducer from 'type-to-reducer';
 import actionTyper from 'redux-actiontyper';
 import axios from 'axios';
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
 
 import { store } from '../../redux/store.redux';
 import { API_HOST } from '../../constants/main.constants';
@@ -18,6 +16,14 @@ const signInAction = createAction(SIGN_IN, values =>
   axios.post(`${API_HOST}/auth/login`, values)
 );
 
+const signInActionCreator = () => async dispatch => {
+  await dispatch(signInAction);
+};
+
+const signUpActionCreator = (...params) => async dispatch => {
+  const result = await dispatch(signUpAction(...params));
+};
+
 const initialState = {
   userId: null,
   isAuthenticated: false,
@@ -27,6 +33,8 @@ const initialState = {
 export const actions = {
   signInAction,
   signUpAction,
+  signInActionCreator,
+  signUpActionCreator,
 };
 
 const reducer = typeToReducer(
@@ -49,9 +57,4 @@ const reducer = typeToReducer(
   initialState
 );
 
-const authPersistConfig = {
-  key: 'user',
-  storage,
-};
-
-store.reducerManager.add('user', persistReducer(authPersistConfig, reducer));
+store.reducerManager.add('user', reducer);

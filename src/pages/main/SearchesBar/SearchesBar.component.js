@@ -57,8 +57,8 @@ const SearchesBar = () => {
     dispatch(actions.getTravelTypesAction());
   }, [dispatch]);
 
-  const cities = useSelector(state => state?.main?.cities);
-  const travelTypes = useSelector(state => state?.main?.travelTypes);
+  const cities = useSelector(state => state?.main?.cities || []);
+  const travelTypes = useSelector(state => state?.main?.travelTypes || []);
 
   const onSubmit = values =>
     dispatch(
@@ -76,11 +76,9 @@ const SearchesBar = () => {
   const handleInputChange = (e, searchText) => {
     dispatch(actions.searchCitiesAction({ searchText }));
   };
-
   const city = useField('city', form);
   const travelType = useField('travel', form);
   const dateRange = useField('dateRange', form);
-
   return (
     <AppBar position="sticky" className={classes.appBar}>
       <Toolbar style={{ padding: '8px 24px' }}>
