@@ -50,16 +50,6 @@ const DenseTable = ({ setAllAspects }) => {
   const cities = get(state, 'value.items', []);
   return (
     <>
-      <div className={classes.tableTitle}>
-        <Button
-          color="primary"
-          size="large"
-          className={classes.actionButton}
-          startIcon={<CompareIcon />}>
-          Select Hotels to compare
-        </Button>
-      </div>
-      <Divider className={classes.divider} />
       <form className={classes.root} autoComplete="off">
         <Table className={classes.table} size="small">
           <TableHead>

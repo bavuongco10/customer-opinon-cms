@@ -63,9 +63,11 @@ const SearchesBar = () => {
   const onSubmit = values =>
     dispatch(
       actions.getRankingsAction({
-        cityId: values.city._id,
-        travelType: values.travel.name,
-        stayLength: Math.abs(differenceInDays(...values.dateRange)),
+        cityId: values.city?._id,
+        travelType: values.travel?.name,
+        stayLength: values.dateRange
+          ? Math.abs(differenceInDays(...values.dateRange))
+          : 1,
       })
     );
 

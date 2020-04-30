@@ -33,7 +33,7 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
 
   const hotels = get(hotelState, 'value.items', []);
   const currentHotelObj = find(hotels, ['_id', currentHotel]);
-  const currentHotelName = currentHotelObj?.name || 'Open select dialog';
+  const currentHotelName = currentHotelObj?.name || 'Select Hotel';
   const reviewScore = get(reviewScoreState, 'value.item.review_score', 'NA');
   const myColor = tinycolor(color).setAlpha(0.3);
 
