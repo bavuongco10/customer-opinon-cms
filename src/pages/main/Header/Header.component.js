@@ -48,7 +48,10 @@ const Header = ({}) => {
               </Tooltip>
             </Grid>
             <Grid item>
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
+              <IconButton
+                color="inherit"
+                className={classes.iconButtonAvatar}
+                href="/sign-in">
                 <Avatar
                   src="https://react.semantic-ui.com/images/avatar/large/jenny.jpg"
                   alt="My Avatar"

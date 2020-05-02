@@ -17,11 +17,13 @@ const signInAction = createAction(SIGN_IN, values =>
 );
 
 const signInActionCreator = () => async dispatch => {
-  await dispatch(signInAction);
+  const result = await dispatch(signInAction);
+  console.log(result);
 };
 
 const signUpActionCreator = (...params) => async dispatch => {
   const result = await dispatch(signUpAction(...params));
+  console.log(result);
 };
 
 const initialState = {

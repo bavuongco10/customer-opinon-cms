@@ -31,7 +31,7 @@ const SignUp = ({ classes }) => {
   const navigate = useNavigate();
 
   const onSubmit = async values => {
-    await dispatch(actions.signUpAction(values));
+    await dispatch(actions.signUpActionCreator(values));
     navigate('dashboard', { replace: true });
   };
 
