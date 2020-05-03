@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/styles';
@@ -48,15 +49,9 @@ const Header = ({}) => {
               </Tooltip>
             </Grid>
             <Grid item>
-              <IconButton
-                color="inherit"
-                className={classes.iconButtonAvatar}
-                href="/sign-in">
-                <Avatar
-                  src="https://react.semantic-ui.com/images/avatar/large/jenny.jpg"
-                  alt="My Avatar"
-                />
-              </IconButton>
+              <Button color="primary" href="sign-in">
+                Sign In
+              </Button>
             </Grid>
           </Grid>
         </Toolbar>
