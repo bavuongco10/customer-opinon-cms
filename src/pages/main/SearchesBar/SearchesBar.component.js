@@ -56,6 +56,9 @@ const SearchesBar = () => {
   useEffect(() => {
     dispatch(actions.getTravelTypesAction());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(actions.getInitialCitiesAction());
+  }, [dispatch]);
 
   const cities = useSelector(state => state?.main?.cities || []);
   const travelTypes = useSelector(state => state?.main?.travelTypes || []);
@@ -78,6 +81,7 @@ const SearchesBar = () => {
   const handleInputChange = (e, searchText) => {
     dispatch(actions.searchCitiesAction({ searchText }));
   };
+
   const city = useField('city', form);
   const travelType = useField('travel', form);
   const dateRange = useField('dateRange', form);

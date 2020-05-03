@@ -4,8 +4,9 @@ import { map } from 'lodash';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { LocationOn, Home, ThumbUp } from '@material-ui/icons';
+import { LocationOn, Home } from '@material-ui/icons';
 import Chip from '@material-ui/core/Chip';
+import Rating from '@material-ui/lab/Rating';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +34,7 @@ export default function ComplexGrid({
   accommodationType,
   address,
   summaryReview,
+  Ri,
 }) {
   const classes = useStyles();
 
@@ -80,10 +82,7 @@ export default function ComplexGrid({
                 paddingLeft: 24,
                 borderLeft: '1px solid rgba(0,0,0,0.1)',
               }}>
-              <Typography variant="subtitle1">
-                <ThumbUp color="primary" />
-                {summaryReview?.scoreText}
-              </Typography>
+              <Rating name="read-only" value={Ri} readOnly />
             </Grid>
           </Grid>
         </Grid>

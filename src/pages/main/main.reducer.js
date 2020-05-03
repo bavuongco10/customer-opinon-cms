@@ -12,6 +12,7 @@ const {
   GET_RANKINGS,
   CLEAN_UP,
   GET_INITIAL_RANKING,
+  GET_INITIAL_CITIES,
 } = actionTyper('main/');
 
 const searchCitiesAction = createAction(SEARCH_CITIES, values =>
@@ -30,6 +31,10 @@ const getInitialRankingsAction = createAction(GET_INITIAL_RANKING, values =>
   axios.get(`${API_HOST}/api/initial-rankings`, { params: values })
 );
 
+const getInitialCitiesAction = createAction(GET_INITIAL_CITIES, () =>
+  axios.get(`${API_HOST}/api/initial-cities`)
+);
+
 const cleanUpAction = createAction(CLEAN_UP);
 
 const initialState = {
@@ -44,11 +49,18 @@ export const actions = {
   getRankingsAction,
   cleanUpAction,
   getInitialRankingsAction,
+  getInitialCitiesAction,
 };
 
 const reducer = typeToReducer(
   {
     [SEARCH_CITIES]: {
+      FULFILLED: (state, action) => ({
+        ...state,
+        cities: action.payload?.data?.items,
+      }),
+    },
+    [GET_INITIAL_CITIES]: {
       FULFILLED: (state, action) => ({
         ...state,
         cities: action.payload?.data?.items,
