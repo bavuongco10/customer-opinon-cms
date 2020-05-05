@@ -37,7 +37,7 @@ const Header = ({}) => {
               <Typography
                 variant="h4"
                 style={{ color: '#005180', fontWeight: 'bold' }}>
-                ODSS
+                Opinion-Driven DS for Tourism
               </Typography>
             </Grid>
             <Grid item xs />

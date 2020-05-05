@@ -107,7 +107,7 @@ const Navigator = props => {
           <ListItemAvatar>
             <Avatar src={logo192} />
           </ListItemAvatar>
-          ODDS
+          Opinion-Driven DS for Tourism
         </ListItem>
         {map(categories, ({ id, children }) => (
           <React.Fragment key={id}>
