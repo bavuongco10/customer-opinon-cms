@@ -10,27 +10,34 @@ import Title from '../../components/Title/Title.component';
 
 const columns = [
   {
-    name: 'city_id',
-    label: 'City Id',
+    name: 'uid',
     options: {
       filter: true,
-      display: false,
     },
   },
   {
-    name: 'city_name',
-    label: 'City Name',
+    name: 'iid',
     options: {
       filter: true,
+    },
+  },
+  {
+    name: 'r_ui',
+  },
+  {
+    name: 'est',
+    options: {
       sort: true,
     },
+  },
+  {
+    name: 'details',
   },
   {
     name: 'hotel_id',
     label: 'Hotel Id',
     options: {
       filter: true,
-      display: false,
     },
   },
   {
@@ -38,122 +45,20 @@ const columns = [
     label: 'Hotel Name',
     options: {
       filter: true,
-      sort: true,
     },
   },
   {
-    name: 'hotel_review_id',
-    label: 'Hotel Review Id',
+    name: 'city_id',
+    label: 'City Id',
     options: {
       filter: true,
-      display: false,
     },
   },
   {
-    name: 'reviewer_country',
-    label: 'Reviewer Country',
+    name: 'city_name',
+    label: 'City Name',
     options: {
       filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'rating',
-    label: 'rating',
-    options: {
-      filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'travel_type_name',
-    label: 'Travel Type Name',
-    options: {
-      filter: true,
-      sort: true,
-    },
-  },
-  {
-    name: 'stay_length',
-    label: 'Stay length',
-    options: {
-      filter: true,
-      sort: true,
-    },
-  },
-  {
-    name: 'comment_language',
-    label: 'Comment Language',
-    options: {
-      filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'room_type_name',
-    label: 'Room Type Name',
-    options: {
-      filter: true,
-      sort: true,
-    },
-  },
-  {
-    name: 'check_in_date',
-    label: 'Check In Date',
-    options: {
-      filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'review_date',
-    label: 'Review Date',
-    options: {
-      filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'sentiment',
-    label: 'Sentiment',
-    options: {
-      filter: true,
-      sort: true,
-    },
-  },
-  {
-    name: 'review_comments',
-    label: 'Review Comments',
-    options: {
-      display: false,
-    },
-  },
-  {
-    name: 'sentiment_x',
-    options: {
-      filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'sentiment_y',
-    options: {
-      filter: true,
-      sort: true,
-      display: false,
-    },
-  },
-  {
-    name: 'Hi',
-    options: {
-      filter: true,
-      sort: true,
     },
   },
   {
@@ -163,10 +68,17 @@ const columns = [
       sort: true,
     },
   },
+  {
+    name: 'reviewer_name',
+    label: 'Reviewer Name',
+    options: {
+      filter: true,
+    },
+  },
 ];
 
-const Analyze = () => {
-  const defaultUrl = `${API_HOST}/api/results`;
+const RSData = () => {
+  const defaultUrl = `${API_HOST}/api/rs-results`;
   const [offset, setOffset] = useState(10);
   const [page, setPage] = useState(0);
 
@@ -215,4 +127,4 @@ const Analyze = () => {
   );
 };
 
-export default Analyze;
+export default RSData;

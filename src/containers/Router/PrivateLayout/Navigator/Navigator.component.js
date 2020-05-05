@@ -30,6 +30,7 @@ const categories = [
       },
       { id: 'Source Data', icon: <TrackChangesIcon />, link: '/source' },
       { id: 'Ranking Data', icon: <CloudDownloadIcon />, link: '/ranking' },
+      { id: 'RS Data', icon: <CloudDownloadIcon />, link: '/rs' },
     ],
   },
 ];

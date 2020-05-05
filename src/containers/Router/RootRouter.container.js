@@ -7,6 +7,7 @@ import Dashboard from '../../pages/dashboard/Dashboard.page';
 import Source from '../../pages/source/Source.page';
 import Analyze from '../../pages/analyze/Analyze.page';
 import MainPage from '../../pages/main/Main.page';
+import RSData from '../../pages/RSData/RSData.page';
 
 import PublicRoute from './PublicRoute/PublicRoute.container';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute.container';
@@ -19,6 +20,7 @@ const RootRouter = () => (
     <ProtectedRoute path="/dashboard" component={Dashboard} />
     <ProtectedRoute path="/source" component={Source} />
     <ProtectedRoute path="/ranking" component={Analyze} />
+    <ProtectedRoute path="/rs" component={RSData} />
   </Router>
 );
 
