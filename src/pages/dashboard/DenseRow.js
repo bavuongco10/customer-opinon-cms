@@ -53,7 +53,7 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
         );
         newAspect[rowId].color = color;
         newAspect[rowId].hotelName = currentHotelName;
-        newAspect[rowId].sentiment = get(
+        newAspect[rowId].ranking = get(
           reviewScoreFetched,
           'item.review_score',
           0

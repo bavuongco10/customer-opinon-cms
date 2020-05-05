@@ -63,7 +63,7 @@ const SentimentChart = ({ data }) => {
         <YAxis ticks={ticks} tickCount={5} />
         <Tooltip />
         <Bar
-          dataKey="sentiment"
+          dataKey="ranking"
           fill="#8884d8"
           label={{ position: 'top' }}
           shape={<TriangleBar />}>
