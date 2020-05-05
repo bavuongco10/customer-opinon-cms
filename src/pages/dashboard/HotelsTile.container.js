@@ -20,13 +20,13 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
 }));
-const HotelsTile = () => {
+const HotelsTile = ({ count }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.visitsNumberContainer}>
       <HotelIcon className={classes.icon} />
-      <Typography variant="h4">1290</Typography>
+      <Typography variant="h4">{count}</Typography>
     </div>
   );
 };

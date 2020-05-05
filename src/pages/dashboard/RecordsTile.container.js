@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     color: '#FFF',
   },
 }));
-const RecordsTile = () => {
+const RecordsTile = ({ count }) => {
   const classes = useStyles();
 
   return (
@@ -41,7 +41,7 @@ const RecordsTile = () => {
       titleClass={classes.widgetTitle}>
       <div className={classes.visitsNumberContainer} data-test={4}>
         <PeopleIcon className={classes.icon} />
-        <Typography variant="h4">105644</Typography>
+        <Typography variant="h4">{count}</Typography>
       </div>
     </Widget>
   );

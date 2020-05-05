@@ -29,23 +29,30 @@ const Dashboard = () => {
     return response.json();
   }, []);
 
+  const summaryState = useAsync(async () => {
+    const response = await fetch(`${API_HOST}/api/summary`);
+    return response.json();
+  }, []);
+
   const hotelsPivotData = get(state, 'value.items', []);
+  const summaryData = get(summaryState, 'value.item', {});
+
   return (
     <>
       <Title>Dashboard</Title>
       <Grid container spacing={4}>
         <Grid item lg={4} md={4} sm={6} xs={12}>
           <Widget title="Collected Provinces" upperTitle disableWidgetMenu>
-            <ProvincesTile />
+            <ProvincesTile count={summaryData.cities} />
           </Widget>
         </Grid>
         <Grid item lg={4} md={4} sm={6} xs={12}>
           <Widget title="Collected Hotels" upperTitle disableWidgetMenu>
-            <HotelsTile />
+            <HotelsTile count={summaryData.hotels} />
           </Widget>
         </Grid>
         <Grid item lg={4} md={4} sm={6} xs={12}>
-          <RecordsTile />
+          <RecordsTile count={summaryData.sources} />
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Widget title="Hotels By City" upperTitle disableWidgetMenu>
