@@ -54,7 +54,7 @@ const SentimentChart = ({ data }) => {
         [classes.blur]: isEmpty(data),
       })}>
       <Button color="primary" size="large" className={classes.actionButton}>
-        Hotels Ranking chart
+        Hotels Ranking Chart
       </Button>
       <Divider className={classes.divider} />
       <BarChart width={500} height={350} data={data} margin={{ left: -30 }}>
