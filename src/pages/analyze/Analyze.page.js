@@ -50,6 +50,66 @@ const columns = [
     },
   },
   {
+    name: 'reviewer_country',
+    label: 'Reviewer Country',
+    options: {
+      filter: true,
+      sort: true,
+      display: false,
+    },
+  },
+  {
+    name: 'rating',
+    label: 'rating',
+    options: {
+      filter: true,
+      sort: true,
+      display: false,
+    },
+  },
+  {
+    name: 'travel_type_name',
+    label: 'Travel Type Name',
+    options: {
+      filter: true,
+      sort: true,
+    },
+  },
+  {
+    name: 'stay_length',
+    label: 'Stay length',
+    options: {
+      filter: true,
+      sort: true,
+    },
+  },
+  {
+    name: 'comment_language',
+    label: 'Comment Language',
+    options: {
+      filter: true,
+      sort: true,
+      display: false,
+    },
+  },
+  {
+    name: 'room_type_name',
+    label: 'Room Type Name',
+    options: {
+      filter: true,
+      sort: true,
+    },
+  },
+  {
+    name: 'check_in_date',
+    label: 'Check In Date',
+    options: {
+      filter: true,
+      sort: true,
+      display: false,
+    },
+  },
+  {
     name: 'review_date',
     label: 'Review Date',
     options: {
@@ -59,15 +119,45 @@ const columns = [
     },
   },
   {
-    name: 'review_score',
-    label: 'Review Score',
+    name: 'sentiment',
+    label: 'Sentiment',
     options: {
       filter: true,
+      sort: true,
     },
   },
   {
-    name: 'reviewer_name',
-    label: 'Reviewer Name',
+    name: 'review_comments',
+    label: 'Review Comments',
+    options: {
+      display: false,
+    },
+  },
+  {
+    name: 'sentiment_x',
+    options: {
+      filter: true,
+      sort: true,
+      display: false,
+    },
+  },
+  {
+    name: 'sentiment_y',
+    options: {
+      filter: true,
+      sort: true,
+      display: false,
+    },
+  },
+  {
+    name: 'Hi',
+    options: {
+      filter: true,
+      sort: true,
+    },
+  },
+  {
+    name: 'Ri',
     options: {
       filter: true,
       sort: true,
@@ -87,6 +177,7 @@ const Analyze = () => {
   }, [offset, page]);
 
   const fetchedData = get(state, 'value.items', []);
+  console.log(fetchedData);
   const totalData = get(state, 'value.totalItems', 0);
   const onTableChange = useCallback((action, tableState) => {
     if (action === 'changeRowsPerPage')
@@ -101,7 +192,7 @@ const Analyze = () => {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable
-            title="Analyzed Data"
+            title="Ranking Data"
             data={fetchedData}
             columns={columns}
             options={{

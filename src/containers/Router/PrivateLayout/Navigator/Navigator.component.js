@@ -11,10 +11,10 @@ import {
 } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
-import ArchiveIcon from '@material-ui/icons/Archive';
 import { map } from 'lodash';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from '@reach/router';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
 import { logo192 } from '../../../../assets/images';
 
@@ -28,8 +28,8 @@ const categories = [
         active: true,
         link: '/dashboard',
       },
-      { id: 'Source', icon: <TrackChangesIcon />, link: '/source' },
-      { id: 'Analyze', icon: <ArchiveIcon />, link: '/analyze' },
+      { id: 'Source Data', icon: <TrackChangesIcon />, link: '/source' },
+      { id: 'Ranking Data', icon: <CloudDownloadIcon />, link: '/ranking' },
     ],
   },
 ];

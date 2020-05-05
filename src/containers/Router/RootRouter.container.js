@@ -18,7 +18,7 @@ const RootRouter = () => (
     <PublicRoute path="/sign-up" component={SignUp} />
     <ProtectedRoute path="/dashboard" component={Dashboard} />
     <ProtectedRoute path="/source" component={Source} />
-    <ProtectedRoute path="/analyze" component={Analyze} />
+    <ProtectedRoute path="/ranking" component={Analyze} />
   </Router>
 );
 
