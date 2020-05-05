@@ -99,11 +99,11 @@ const RSData = () => {
 
   return (
     <>
-      <Title>Source</Title>
+      <Title>RS Data</Title>
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable
-            title="Ranking Data"
+            title="RS Data"
             data={fetchedData}
             columns={columns}
             options={{

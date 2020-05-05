@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const COLORS = ['#F47560', '#F1E15B'];
+const COLORS = ['#ECA536', '#F5ED9C', '#0CB2D3', '#0B5FD3'];
 
 const DenseTable = ({ setAllAspects }) => {
   const classes = useStyles();
@@ -54,12 +54,12 @@ const DenseTable = ({ setAllAspects }) => {
         <Table className={classes.table} size="small">
           <TableHead>
             <TableRow>
-              <TableCell>Hotels</TableCell>
-              <TableCell>Review Score</TableCell>
+              <TableCell>Hotel</TableCell>
+              <TableCell>Ranking (Ri)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {times(2, index => (
+            {times(4, index => (
               <DenseRow
                 rowId={index}
                 key={index}

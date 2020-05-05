@@ -25,7 +25,6 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
   }, [currentCity]);
 
   const [reviewScoreState, fetchReviewScore] = useAsyncFn(async () => {
-    if (!currentCity) return null;
     const url = `${API_HOST}/api/hotels/${currentHotel}/results`;
     const response = await fetch(url);
     return response.json();
@@ -34,7 +33,7 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
   const hotels = get(hotelState, 'value.items', []);
   const currentHotelObj = find(hotels, ['_id', currentHotel]);
   const currentHotelName = currentHotelObj?.name || 'Select Hotel';
-  const reviewScore = get(reviewScoreState, 'value.item.review_score', 'NA');
+  const reviewScore = get(reviewScoreState, 'value.item.review_score', 0);
   const myColor = tinycolor(color).setAlpha(0.3);
 
   const handleSelectHotel = useCallback(async () => {
@@ -54,7 +53,11 @@ const DenseRow = ({ cities, setAllAspects, rowId, color }) => {
         );
         newAspect[rowId].color = color;
         newAspect[rowId].hotelName = currentHotelName;
-        newAspect[rowId].sentiment = round(random(0.1, 1), 2);
+        newAspect[rowId].sentiment = get(
+          reviewScoreFetched,
+          'item.review_score',
+          0
+        );
         return { allAspects: newAspect };
       });
     }

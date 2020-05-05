@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import classNames from 'clsx';
 
-const ticks = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
+const ticks = [0, 1, 2, 3, 4, 5];
 
 const getPath = (x, y, width, height) => `M${x},${y + height}
           C${x + width / 3},${y + height} ${x + width / 2},${y +
@@ -57,10 +57,10 @@ const SentimentChart = ({ data }) => {
         Hotels Sentiment Score Chart
       </Button>
       <Divider className={classes.divider} />
-      <BarChart width={300} height={350} data={data} margin={{ left: -30 }}>
+      <BarChart width={500} height={350} data={data} margin={{ left: -30 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="hotelName" hide />
-        <YAxis ticks={ticks} tickCount={10} />
+        <YAxis ticks={ticks} tickCount={5} />
         <Tooltip />
         <Bar
           dataKey="sentiment"

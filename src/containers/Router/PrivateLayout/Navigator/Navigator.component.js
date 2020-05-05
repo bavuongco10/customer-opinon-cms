@@ -15,6 +15,7 @@ import { map } from 'lodash';
 import { makeStyles } from '@material-ui/styles';
 import { Link } from '@reach/router';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 
 import { logo192 } from '../../../../assets/images';
 
@@ -31,6 +32,7 @@ const categories = [
       { id: 'Source Data', icon: <TrackChangesIcon />, link: '/source' },
       { id: 'Ranking Data', icon: <CloudDownloadIcon />, link: '/ranking' },
       { id: 'RS Data', icon: <CloudDownloadIcon />, link: '/rs' },
+      { id: 'Hotel Features', icon: <LocalOfferIcon />, link: '/features' },
     ],
   },
 ];
