@@ -1,25 +1,25 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { useAsync } from 'react-use';
-import { map, get } from 'lodash';
-import Chip from '@material-ui/core/Chip';
-import LocalOffer from '@material-ui/icons/LocalOffer';
-import { makeStyles } from '@material-ui/styles';
+import { map, get, round } from 'lodash';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import Title from '../../components/Title/Title.component';
 import { API_HOST } from '../../constants/main.constants';
 
-const useStyles = makeStyles(theme => ({
-  tags: {
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1),
-    },
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
   },
-}));
+});
 
 const HotelFeatures = () => {
   const classes = useStyles();
@@ -34,19 +34,41 @@ const HotelFeatures = () => {
 
   return (
     <>
-      <Title>Source</Title>
+      <Title>Hotel Features</Title>
       <Grid container spacing={4}>
         <Grid item xs={12}>
-          <div className={classes.tags}>
-            {map(features, feature => (
-              <Chip
-                variant="outlined"
-                label={feature}
-                color="secondary"
-                icon={<LocalOffer />}
-              />
-            ))}
-          </div>
+          <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Feature</TableCell>
+                  <TableCell align="right">Importance (%)</TableCell>
+                  <TableCell align="right" style={{ width: '30vw' }} />
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {map(features, feature => (
+                  <TableRow key={feature.name}>
+                    <TableCell component="th" scope="row">
+                      {feature.name}
+                    </TableCell>
+                    <TableCell align="right">{`${round(
+                      feature.importantRate * 100,
+                      2
+                    )}%`}</TableCell>
+                    <TableCell align="right">
+                      <LinearProgress
+                        style={{ height: 16 }}
+                        variant="determinate"
+                        color="secondary"
+                        value={feature.importantRate * 100}
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Grid>
       </Grid>
     </>

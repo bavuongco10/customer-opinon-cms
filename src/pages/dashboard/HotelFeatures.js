@@ -35,10 +35,10 @@ const HotelFeatures = () => {
 
   return (
     <div className={classes.radarContainer}>
-      {map(features, feature => (
+      {map(features, ({ name }) => (
         <Chip
           variant="outlined"
-          label={feature}
+          label={name}
           color="secondary"
           icon={<LocalOffer />}
         />
